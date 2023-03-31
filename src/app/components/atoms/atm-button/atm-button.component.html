@@ -1,0 +1,11 @@
+<button
+  type="button"
+  mat-flat-button
+  color="accent"
+  (click)="execute()"
+  [ngStyle]="{ width: width }"
+  [disabled]="disabled"
+>
+  <mat-icon *ngIf="btnIcon" svgIcon="icon"></mat-icon>
+  {{ text | uppercase }}
+</button>

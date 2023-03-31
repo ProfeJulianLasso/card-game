@@ -19,6 +19,11 @@ specifiers:
   '@angular/platform-browser': ^15.2.5
   '@angular/platform-browser-dynamic': ^15.2.5
   '@angular/router': ^15.2.5
+  '@fortawesome/angular-fontawesome': 0.12.1
+  '@fortawesome/fontawesome-svg-core': 6.4.0
+  '@fortawesome/free-brands-svg-icons': 6.4.0
+  '@fortawesome/free-regular-svg-icons': 6.4.0
+  '@fortawesome/free-solid-svg-icons': 6.4.0
   '@types/jasmine': ~4.3.1
   '@typescript-eslint/eslint-plugin': 5.48.2
   '@typescript-eslint/parser': 5.48.2
@@ -49,6 +54,11 @@ dependencies:
   '@angular/platform-browser': 15.2.5_whitwv576nipstqe3pscp2dg6m
   '@angular/platform-browser-dynamic': 15.2.5_q7pdso3tfnujpmliompw7qvcae
   '@angular/router': 15.2.5_fei2hpjube2jyptjjr23apcui4
+  '@fortawesome/angular-fontawesome': 0.12.1_6uiuec7k5gnsrr225q6uigee3y
+  '@fortawesome/fontawesome-svg-core': 6.4.0
+  '@fortawesome/free-brands-svg-icons': 6.4.0
+  '@fortawesome/free-regular-svg-icons': 6.4.0
+  '@fortawesome/free-solid-svg-icons': 6.4.0
   rxjs: 7.8.0
   tslib: 2.5.0
   zone.js: 0.12.0
@@ -2107,6 +2117,55 @@ packages:
     resolution: {integrity: sha512-x5vzdtOOGgFVDCUs81QRB2+liax8rFg3+7hqM+QhBG0/G3F1ZsoYl97UrqgHgQ9KKT7G6c4V+aTUCgu/n22v1A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@fortawesome/angular-fontawesome/0.12.1_6uiuec7k5gnsrr225q6uigee3y:
+    resolution: {integrity: sha512-vGGUfmWhsCtC+wUhnLXPeWBod33XKMFERwvD21LTbVBOCwUDUfwcS9nqfTmrULcpFl/bn20REZH/1vSreWd3ZA==}
+    peerDependencies:
+      '@angular/core': ^15.0.0
+      '@fortawesome/fontawesome-svg-core': ~1.2.27 || ~1.3.0-beta2 || ^6.1.0
+    dependencies:
+      '@angular/core': 15.2.5_rxjs@7.8.0+zone.js@0.12.0
+      '@fortawesome/fontawesome-svg-core': 6.4.0
+      tslib: 2.5.0
+    dev: false
+
+  /@fortawesome/fontawesome-common-types/6.4.0:
+    resolution: {integrity: sha512-HNii132xfomg5QVZw0HwXXpN22s7VBHQBv9CeOu9tfJnhsWQNd2lmTNi8CSrnw5B+5YOmzu1UoPAyxaXsJ6RgQ==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: false
+
+  /@fortawesome/fontawesome-svg-core/6.4.0:
+    resolution: {integrity: sha512-Bertv8xOiVELz5raB2FlXDPKt+m94MQ3JgDfsVbrqNpLU9+UE2E18GKjLKw+d3XbeYPqg1pzyQKGsrzbw+pPaw==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.4.0
+    dev: false
+
+  /@fortawesome/free-brands-svg-icons/6.4.0:
+    resolution: {integrity: sha512-qvxTCo0FQ5k2N+VCXb/PZQ+QMhqRVM4OORiO6MXdG6bKolIojGU/srQ1ptvKk0JTbRgaJOfL2qMqGvBEZG7Z6g==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.4.0
+    dev: false
+
+  /@fortawesome/free-regular-svg-icons/6.4.0:
+    resolution: {integrity: sha512-ZfycI7D0KWPZtf7wtMFnQxs8qjBXArRzczABuMQqecA/nXohquJ5J/RCR77PmY5qGWkxAZDxpnUFVXKwtY/jPw==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.4.0
+    dev: false
+
+  /@fortawesome/free-solid-svg-icons/6.4.0:
+    resolution: {integrity: sha512-kutPeRGWm8V5dltFP1zGjQOEAzaLZj4StdQhWVZnfGFCvAPVvHh8qk5bRrU4KXnRRRNni5tKQI9PBAdI6MP8nQ==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 6.4.0
+    dev: false
 
   /@gar/promisify/1.1.3:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
