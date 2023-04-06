@@ -1,11 +1,12 @@
 <button
-  type="button"
-  mat-flat-button
-  color="accent"
+  [type]="type"
+  mat-fab
+  extended
+  [color]="color"
   (click)="execute()"
-  [ngStyle]="{ width: width }"
+  [ngStyle]="{ width: size }"
   [disabled]="disabled"
 >
-  <mat-icon *ngIf="btnIcon" svgIcon="icon"></mat-icon>
+  <mat-icon *ngIf="icon" svgIcon="icon2" class="middle"></mat-icon>
   {{ text | uppercase }}
 </button>

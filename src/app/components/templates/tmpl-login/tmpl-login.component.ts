@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IAtmButton } from '../../ions';
 
 @Component({
   selector: 'app-tmpl-login',
@@ -6,10 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./tmpl-login.component.scss'],
 })
 export class TmplLoginComponent {
-  button = {
-    text: 'Login',
-    execute: () => {
-      console.log('Login');
-    },
-  };
+  @Input() btnLogin: IAtmButton;
+
+  constructor() {
+    this.btnLogin = {} as IAtmButton;
+  }
 }

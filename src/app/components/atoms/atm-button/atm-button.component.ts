@@ -5,6 +5,7 @@ import {
   IconDefinition,
   icon as faIconCore,
 } from '@fortawesome/fontawesome-svg-core';
+import { ButtonType, Color } from '../../ions';
 
 @Component({
   selector: 'app-atm-button',
@@ -12,31 +13,34 @@ import {
   styleUrls: ['./atm-button.component.scss'],
 })
 export class AtmButtonComponent implements OnInit {
-  @Input() width: string;
+  @Input() size: string;
   @Input() text: string;
+  @Input() color?: Color;
   @Input() disabled?: boolean;
-  @Input() btnIcon?: IconDefinition;
   @Input() execute: () => void;
+  @Input() icon?: IconDefinition;
+  @Input() type?: ButtonType;
 
   constructor(
     private registry: MatIconRegistry,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {
     this.disabled = false;
-    this.width = 'fit-content';
     this.text = 'Lorem Ipsum';
+    this.size = 'fit-content';
+    this.color = Color.Primary;
+    this.type = ButtonType.Button;
     this.execute = () => {
-      throw new Error('Method not implemented - atom');
+      throw new Error('Method not implemented - AtmButtonComponent');
     };
   }
 
   ngOnInit(): void {
-    if (this.btnIcon) {
-      console.log('icon', this.btnIcon);
-      const svg = faIconCore(this.btnIcon).html.join('');
+    if (this.icon) {
+      const svg = faIconCore(this.icon, { classes: ['fa-15em'] }).html.join('');
       this.registry.addSvgIconLiteral(
-        'icon',
-        this.sanitizer.bypassSecurityTrustHtml(svg)
+        'icon2',
+        this.sanitizer.bypassSecurityTrustHtml(svg),
       );
     }
   }
