@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { ButtonType, Color, IAtmButton } from 'src/app/components/ions';
-import { AuthService } from '../../services/auth.service';
+import { ButtonType, Color, IAtmButton } from '../../../../components/ions';
+import { AuthService } from '../../../security/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +10,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class DashboardComponent {
   btnSignOut: IAtmButton;
+  datos: number;
 
   constructor(private readonly authService: AuthService) {
+    this.datos = 0;
     this.btnSignOut = {
       text: 'logout',
       type: ButtonType.Button,
@@ -22,5 +24,9 @@ export class DashboardComponent {
         this.authService.SignOut();
       },
     };
+  }
+
+  btnGoogleAuth(): void {
+    this.datos = 1 + 2;
   }
 }

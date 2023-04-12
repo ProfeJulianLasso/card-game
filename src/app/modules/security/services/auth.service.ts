@@ -8,13 +8,13 @@ import {
 import { Router } from '@angular/router';
 import { GoogleAuthProvider } from 'firebase/auth';
 import firebase from 'firebase/compat/app';
-import { User } from 'src/app/shared/interfaces/user';
+import { IUser } from '../../../shared/interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private usersCollection: AngularFirestoreCollection<User>;
+  private usersCollection: AngularFirestoreCollection<IUser>;
   private userData!: firebase.User;
 
   constructor(
@@ -22,7 +22,7 @@ export class AuthService {
     public auth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
   ) {
-    this.usersCollection = storage.collection<User>('usuarios');
+    this.usersCollection = storage.collection<IUser>('usuarios');
     this.auth.authState.subscribe((user) => {
       if (user && user.emailVerified) {
         this.userData = user;
@@ -37,7 +37,7 @@ export class AuthService {
   // Sign in with Google
   GoogleAuth(): Promise<void> {
     return this.AuthLogin(new GoogleAuthProvider()).then(() => {
-      this.router.navigate(['./security/dashboard']);
+      this.router.navigate(['./dashboard']);
     });
   }
 
@@ -72,18 +72,14 @@ export class AuthService {
 
   // Send email verification when new user sign up
   SendVerificationMail(): Promise<void> {
-    return this.auth.currentUser
-      .then((user) => user?.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['./security/verify-email-address']);
-      });
+    return this.auth.currentUser.then((user) => user?.sendEmailVerification());
   }
 
   SetUserData(user: firebase.User): Promise<void> {
     const userRef: AngularFirestoreDocument = this.usersCollection.doc(
       user.uid,
     );
-    const userData: User = {
+    const userData: IUser = {
       uid: user.uid,
       email: user.email ?? '',
       displayName: user.displayName ?? '',

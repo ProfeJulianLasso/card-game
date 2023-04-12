@@ -8,14 +8,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Routing
-import { AppRoutingModule } from './modules/main/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
+
+// Environments
+import { environment } from 'src/environments/environment.development';
 
 // Main Layout
-import { environment } from 'src/environments/environment.development';
-import { AppLayoutComponent } from './modules/main/layout/app/app-layout.component';
+import { AppLayoutComponent } from './layout/app/app-layout.component';
+
+// Atomic Design
+import { AtomsModule } from '../../components/atoms/atoms.module';
+import { MoleculesModule } from '../../components/molecules/molecules.module';
+import { OrganismsModule } from '../../components/organisms/organisms.module';
+import { TemplatesModule } from '../../components/templates/templates.module';
+
+// Components
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppLayoutComponent],
+  declarations: [AppLayoutComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -24,6 +35,10 @@ import { AppLayoutComponent } from './modules/main/layout/app/app-layout.compone
     AngularFireDatabaseModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    AtomsModule,
+    MoleculesModule,
+    OrganismsModule,
+    TemplatesModule,
   ],
   providers: [],
   bootstrap: [AppLayoutComponent],
